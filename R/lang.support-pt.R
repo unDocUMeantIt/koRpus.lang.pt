@@ -57,24 +57,22 @@ lang.support.pt <- function() {
   #  - if some setting is missing, just set it to an empty vector (c())
   koRpus::set.lang.support(target="treetag",
     value=list(
-      "pt-utf8"=list(
-        ## preset: "pt-utf8"
-        # tags "utf-8" encoded text files
+      "pt"=list(
+        ## preset: "pt"
+        # tags UTF-8 encoded text files
         lang      = "pt",
         encoding  = "UTF-8",
         preset    = function(TT.cmd, TT.bin, TT.lib, unix.OS){
+          # note: these objects are set here for convenience, the
+          # actual important part is the return value below
+          TT.abbrev     <- file.path(TT.lib, "portuguese-abbreviations-utf8")
+          TT.separator  <- file.path(TT.bin, "separate-punctuation")
+          TT.posttagger <- file.path(TT.cmd, "portuguese-post-tagging")
+          TT.filter     <- paste("-token -lemma -sgml |", TT.posttagger, "-no")
+          # generally, the parts below are combined in this order:
+          # TT.tokenizer TT.tknz.opts "|" TT.lookup.command TT.tagger TT.opts TT.params TT.filter.command
           if(isTRUE(unix.OS)){
             # preset for unix systems
-
-            # note: these objects are set here for convenience, the
-            # actual important part is the return value below
-            TT.abbrev     <- file.path(TT.lib, "portuguese-abbreviations-utf8")
-            TT.separator  <- file.path(TT.bin, "separate-punctuation")
-            TT.posttagger <- file.path(TT.cmd, "portuguese-post-tagging")
-            TT.filter     <- paste("-token -lemma -sgml |", TT.posttagger, "-no")
-
-            # generally, the parts below are combined in this order:
-            # TT.tokenizer TT.tknz.opts "|" TT.lookup.command TT.tagger TT.opts TT.params TT.filter.command
             return(
               list(
                 # you should change these according to the TreeTagger script
@@ -85,13 +83,13 @@ lang.support.pt <- function() {
                 TT.abbrev           = c(),
                 TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev, "| grep -v '^$'"),
-                TT.filter.command   = TT.filter
+                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.filter.command   = TT.filter,
+                TT.pre.tagger       = "grep -v '^$' |"
               )
             )
           } else {
             # preset for windows systems
-            TT.abbrev   <- file.path(TT.lib, "portuguese-abbreviations-utf8")
             return(
               list(
                 TT.splitter         = file.path(TT.cmd, "portuguese-splitter.perl"),
@@ -101,8 +99,9 @@ lang.support.pt <- function() {
                 TT.abbrev           = c(),
                 TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev, "| grep -v '^$'"),
-                TT.filter.command   = TT.filter
+                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.filter.command   = TT.filter,
+                TT.pre.tagger       = "grep -v '^$' |"
               )
             )
           }
