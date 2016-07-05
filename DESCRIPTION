@@ -5,7 +5,7 @@ Author: m.eik michalke [aut, cre], Katharina Karges [ctb], Jan Vanhove
     [ctb]
 Maintainer: m.eik michalke <meik.michalke@hhu.de>
 Depends:
-    R (>= 2.10.0),koRpus (>= 0.06-6),
+    R (>= 2.10.0),koRpus (>= 0.07-1),
     methods
 Description: Adds support for the Portuguese language to the koRpus
     package. Due to some restrictions on CRAN, the full package
