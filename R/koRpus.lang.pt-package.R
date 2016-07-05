@@ -12,10 +12,7 @@
 #' URL: \tab http://reaktanz.de/?c=hacking&s=koRpus\cr
 #' }
 #'
-#' Adds support for the Portuguese language to the koRpus package.
-#' Due to some restrictions on CRAN, the full package sources are only available from the project homepage.
-#' To ask for help, report bugs, suggest feature improvements, or discuss the global development of the package,
-#' please subscribe to the koRpus-dev mailing list: https://ml06.ispgateway.de/mailman/listinfo/korpus-dev_r.reaktanz.de
+#' Adds support for the Portuguese language to the koRpus package. Due to some restrictions on CRAN, the full package sources are only available from the project homepage. To ask for help, report bugs, suggest feature improvements, or discuss the global development of the package, please subscribe to the koRpus-dev mailing list: https://ml06.ispgateway.de/mailman/listinfo/korpus-dev_r.reaktanz.de
 #'
 #' @aliases koRpus.lang.pt-package
 #' @name koRpus.lang.pt-package

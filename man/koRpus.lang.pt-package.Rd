@@ -20,12 +20,11 @@ LazyLoad: \tab yes\cr
 URL: \tab http://reaktanz.de/?c=hacking&s=koRpus\cr
 }
 
-Adds support for the Portuguese language to the koRpus package.
-Due to some restrictions on CRAN,
-      the full package sources are only available from the project homepage.
-To ask for help, report bugs, suggest feature improvements,
+Adds support for the Portuguese language to the koRpus package. Due to some restrictions on CRAN,
+      the full package sources are only available from the project homepage. To ask for help,
+      report bugs, suggest feature improvements,
       or discuss the global development of the package,
-please subscribe to the koRpus-dev mailing list: https://ml06.ispgateway.de/mailman/listinfo/korpus-dev_r.reaktanz.de
+      please subscribe to the koRpus-dev mailing list: https://ml06.ispgateway.de/mailman/listinfo/korpus-dev_r.reaktanz.de
 }
 \author{
 m.eik michalke, with contributions from Katharina Karges, Jan Vanhove
