@@ -4,7 +4,7 @@
 #' Package: \tab koRpus.lang.pt\cr
 #' Type: \tab Package\cr
 #' Version: \tab 0.01-1\cr
-#' Date: \tab 2016-07-06\cr
+#' Date: \tab 2016-07-11\cr
 #' Depends: \tab R (>= 2.10.0),koRpus (>= 0.07-1), methods\cr
 #' Encoding: \tab UTF-8\cr
 #' License: \tab GPL (>= 3)\cr
