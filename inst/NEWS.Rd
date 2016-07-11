@@ -7,9 +7,4 @@
       \item initial release
     }
   }
-  \subsection{unreleased}{
-    \itemize{
-      \item this release is under development
-    }
-  }
 }
