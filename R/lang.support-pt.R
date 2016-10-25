@@ -316,8 +316,8 @@ lang.support.pt <- function() {
           "VSN","verb","verbo semiauxiliar infinitivo",
           "VSP","verb","verbo semiauxiliar participio",
           "VSS","verb","verbo semiauxiliar subjuntivo",
-          "XY", "nonword", "nonword"
-          "Z","number","chifra",
+          "XY", "nonword", "nonword",
+          "Z","number","chifra"
         ), ncol=3, byrow=TRUE, dimnames=list(c(),c("tag","wclass","desc"))),
         tag.class.def.punct=matrix(c(
           "F","punctuation","pontuacao",
