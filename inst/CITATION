@@ -1,13 +1,13 @@
 bibentry("Manual",
-    title="koRpus.lang.pt: Language support for koRpus: Portuguese",
-    author="m.eik michalke",
-    year="2016",
-    note="(Version 0.01-1)",
+    title="koRpus.lang.pt: Language Support for 'koRpus': Portuguese",
+    author="Meik Michalke",
+    year="2017",
+    note="(Version 0.01-2)",
     url="http://reaktanz.de/?c=hacking&s=koRpus",
 
     textVersion =
-    paste("michalke, m. (2016). ",
-        "koRpus.lang.pt: Language support for koRpus: Portuguese (Version 0.01-1). ",
+    paste("Michalke, M. (2017). ",
+        "koRpus.lang.pt: Language Support for 'koRpus': Portuguese (Version 0.01-2). ",
         "Available from http://reaktanz.de/?c=hacking&s=koRpus",
         sep=""),
 

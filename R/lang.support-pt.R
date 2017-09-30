@@ -1,4 +1,4 @@
-# Copyright 2016 Meik Michalke <meik.michalke@hhu.de>
+# Copyright 2016-2017 Meik Michalke <meik.michalke@hhu.de>
 #
 # This file is part of the R package koRpus.lang.pt.
 #
@@ -28,27 +28,24 @@
 #' In particular, this function adds the following:
 #' \itemize{
 #'  \item \code{lang}: The additional language "pt" to be used with koRpus
-#'  \item \code{hyphen}: An additional set of hyphenation patterns (see \code{\link{hyph.pt}})
 #'  \item \code{treetag}: The additional preset "pt-utf8", implemented according to the respective
 #'    TreeTagger[1] script
 #'  \item \code{POS tags}: An additional set of tags, implemented using the documentation for the corresponding
 #'    TreeTagger parameter set[2]
 #' }
+#' Hyphenation patterns are provided by means of the \code{sylly.pt} package.
 #'
 #' @references
 #' [1] \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}
 #'
 #' [2] \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/Portuguese-Tagset.html}
-#' @import koRpus
 #' @export
+#' @importFrom koRpus set.lang.support
+#' @examples
+#' \dontrun{
+#' lang.support.pt()
+#' }
 lang.support.pt <- function() {
-
-  # first tell koRpus where to find hyphenation patterns (see ?set.lang.support for details)
-  koRpus::set.lang.support(target="hyphen",
-    value=list(
-      "pt"=c("pt", package="koRpus.lang.pt")
-    )
-  )
 
   # here you have to adjust the parameters according to the contents of the TreeTagger
   # scripts for your language (see ?set.lang.support for details)
@@ -353,6 +350,8 @@ lang.support.pt <- function() {
 
 # this internal, non-exported function causes the language support to be
 # properly added when the package gets loaded
+#' @importFrom sylly.pt hyph.support.pt
 .onAttach <- function(...) {
   lang.support.pt()
+  sylly.pt::hyph.support.pt()
 }
