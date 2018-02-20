@@ -1,11 +1,10 @@
 ChangeLog for package koRpus.lang.pt
 
-changes in version 0.01-2 (2018-02-20)
+changes in version 0.01-2 (2017-09-30)
 changed:
   - adjusted koRpus dependency to >= 0.11-1
   - package was moved to the l10n repository on github
   - sorted the tag definitions alphabetically
-  - updated README.md
 added:
   - some new tags were contributed by jan vanhove; they were undocumented in the original tagset docs, but returned by TreeTagger
 removed:
