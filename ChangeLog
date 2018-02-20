@@ -1,8 +1,10 @@
 ChangeLog for package koRpus.lang.pt
 
-changes in version 0.01-3 (2017-09-30)
+changes in version 0.01-3 (2018-02-20)
 unreleased:
   - this release is under development
+changed:
+  - updated README.md
 
 changes in version 0.01-2 (2017-09-30)
 changed:
