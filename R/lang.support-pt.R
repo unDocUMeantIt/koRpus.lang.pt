@@ -34,6 +34,7 @@
 #' }
 #' Hyphenation patterns are provided by means of the \code{sylly.pt} package.
 #'
+#' @param ... Optional arguments for \code{\link[koRpus:set.lang.support]{set.lang.support}}.
 #' @references
 #' [1] \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}
 #'
@@ -44,7 +45,7 @@
 #' \dontrun{
 #' lang.support.pt()
 #' }
-lang.support.pt <- function() {
+lang.support.pt <- function(...) {
 
   # here you have to adjust the parameters according to the contents of the TreeTagger
   # scripts for your language (see ?set.lang.support for details)
@@ -103,7 +104,8 @@ lang.support.pt <- function() {
           }
         }
       )
-    )
+    ),
+    ...
   )
 
   # finally, add the POS tagset information (see ?set.lang.support for details)
@@ -333,7 +335,8 @@ lang.support.pt <- function() {
           "Fp","fullstop","."
         ), ncol=3, byrow=TRUE, dimnames=list(c(),c("tag","wclass","desc")))
       )
-    )
+    ),
+    ...
   )
 }
 

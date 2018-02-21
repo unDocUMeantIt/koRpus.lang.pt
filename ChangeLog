@@ -5,6 +5,8 @@ unreleased:
   - this release is under development
 changed:
   - updated README.md
+added:
+  - support optional arguments for koRpus::set.lang.support()
 
 changes in version 0.01-2 (2017-09-30)
 changed:

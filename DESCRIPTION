@@ -1,26 +1,19 @@
 Package: koRpus.lang.pt
 Type: Package
-Title: Language Support for 'koRpus': Portuguese
-Author: Meik Michalke [aut, cre], Katharina Karges [ctb], Jan Vanhove
-        [ctb]
+Title: Language Support for 'koRpus' Package: Portuguese
+Author: Meik Michalke <meik.michalke@hhu.de> [aut, cre], Katharina Karges [ctb], Jan Vanhove [ctb]
 Maintainer: Meik Michalke <meik.michalke@hhu.de>
-Depends: R (>= 2.10.0),koRpus (>= 0.11-1)
+Depends: R (>= 3.1),koRpus (>= 0.11-2)
 Imports: methods,sylly.pt
 Additional_repositories: https://undocumeantit.github.io/repos/l10n
-Description: Adds support for the Portuguese language to the 'koRpus'
-        package. Due to some restrictions on CRAN, the full package
-        sources are only available from the project homepage. To ask
-        for help, report bugs, suggest feature improvements, or discuss
-        the global development of the package, please subscribe to the
-        koRpus-dev mailing list (<http://korpusml.reaktanz.de>).
+Description: Adds support for the Portuguese language to the 'koRpus' package. To ask for help, report bugs, suggest feature improvements, or discuss the global development of the package, please consider subscribing to the
+                         koRpus-dev mailing list (<http://korpusml.reaktanz.de>).
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyLoad: yes
-URL: http://reaktanz.de/?c=hacking&s=koRpus
-Authors@R: c(person(given="Meik", family="Michalke",
-        email="meik.michalke@hhu.de", role=c("aut", "cre")),
-        person(given="Katharina", family="Karges", role=c("ctb")),
-        person(given="Jan", family="Vanhove", role=c("ctb")))
-Version: 0.01-2
-Date: 2017-09-30
+URL: https://reaktanz.de/?c=hacking&s=koRpus
+BugReports: https://github.com/unDocUMeantIt/koRpus.lang.pt/issues
+Authors@R: c(person(given="Meik", family="Michalke", email="meik.michalke@hhu.de", role=c("aut", "cre")), person(given="Katharina", family="Karges", role=c("ctb")), person(given="Jan", family="Vanhove", role=c("ctb")))
+Version: 0.1-3
+Date: 2018-02-21
 RoxygenNote: 6.0.1
