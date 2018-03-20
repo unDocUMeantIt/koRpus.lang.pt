@@ -1,4 +1,4 @@
-# Copyright 2016-2017 Meik Michalke <meik.michalke@hhu.de>
+# Copyright 2016-2018 Meik Michalke <meik.michalke@hhu.de>
 #
 # This file is part of the R package koRpus.lang.pt.
 #
@@ -23,7 +23,7 @@
 #' 
 #' This function adds support for Portuguese to the koRpus package. You should not
 #' need to call it manually, as that is done automatically when this package is
-#' loaded.
+#' being loaded.
 #' 
 #' In particular, this function adds the following:
 #' \itemize{
@@ -32,7 +32,7 @@
 #'  \item \code{POS tags}: An additional set of tags, implemented using the documentation for the corresponding
 #'    TreeTagger parameter set[2]
 #' }
-#' Hyphenation patterns are provided by means of the \code{sylly.pt} package.
+#' Hyphenation patterns are provided by means of the \code{\link[sylly.pt:hyph.support.pt]{sylly.pt}} package.
 #'
 #' @param ... Optional arguments for \code{\link[koRpus:set.lang.support]{set.lang.support}}.
 #' @references
