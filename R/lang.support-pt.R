@@ -42,9 +42,8 @@
 #' @export
 #' @importFrom koRpus set.lang.support
 #' @examples
-#' \dontrun{
 #' lang.support.pt()
-#' }
+
 lang.support.pt <- function(...) {
 
   # here you have to adjust the parameters according to the contents of the TreeTagger
