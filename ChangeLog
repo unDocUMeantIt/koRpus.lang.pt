@@ -1,9 +1,10 @@
 ChangeLog for package koRpus.lang.pt
 
-changes in version 0.01-3 (2018-02-20)
+changes in version 0.1-3 (2018-02-20)
 unreleased:
   - this release is under development
 changed:
+  - version number shortened by dropping a zero
   - updated README.md
 added:
   - support optional arguments for koRpus::set.lang.support()
