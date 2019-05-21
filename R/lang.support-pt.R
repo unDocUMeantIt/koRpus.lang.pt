@@ -1,4 +1,4 @@
-# Copyright 2016-2018 Meik Michalke <meik.michalke@hhu.de>
+# Copyright 2016-2019 Meik Michalke <meik.michalke@hhu.de>
 #
 # This file is part of the R package koRpus.lang.pt.
 #
@@ -76,10 +76,10 @@ lang.support.pt <- function(...) {
                 TT.splitter.opts    = paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |"),
                 TT.tokenizer        = file.path(TT.bin, "separate-punctuation"),
                 TT.tagger           = file.path(TT.bin, "tree-tagger"),
-                TT.abbrev           = c(),
+                TT.abbrev           = TT.abbrev,
                 TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.tknz.opts        = "+1 +s +l",
                 TT.filter.command   = TT.filter,
                 TT.pre.tagger       = "grep -v '^$' |"
               )
@@ -92,10 +92,10 @@ lang.support.pt <- function(...) {
                 TT.splitter.opts    = paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |"),
                 TT.tokenizer        = file.path(TT.bin, "separate-punctuation"),
                 TT.tagger           = file.path(TT.bin, "tree-tagger.exe"),
-                TT.abbrev           = c(),
+                TT.abbrev           = TT.abbrev,
                 TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.tknz.opts        = "+1 +s +l",
                 TT.filter.command   = TT.filter,
                 TT.pre.tagger       = "grep -v '^$' |"
               )
