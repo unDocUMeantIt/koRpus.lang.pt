@@ -1,4 +1,4 @@
-# Copyright 2016-2018 Meik Michalke <meik.michalke@hhu.de>
+# Copyright 2016-2020 Meik Michalke <meik.michalke@hhu.de>
 #
 # This file is part of the R package koRpus.lang.pt.
 #
@@ -61,10 +61,15 @@ lang.support.pt <- function(...) {
         preset    = function(TT.cmd, TT.bin, TT.lib, unix.OS){
           # note: these objects are set here for convenience, the
           # actual important part is the return value below
-          TT.abbrev     <- file.path(TT.lib, "portuguese-abbreviations-utf8")
-          TT.separator  <- file.path(TT.bin, "separate-punctuation")
-          TT.posttagger <- file.path(TT.cmd, "portuguese-post-tagging")
-          TT.filter     <- paste("-token -lemma -sgml |", TT.posttagger, "-no")
+          TT.splitter       <- file.path(TT.cmd, "portuguese-splitter.perl")
+          TT.splitter.opts  <- paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |")
+          TT.abbrev         <- file.path(TT.lib, "portuguese-abbreviations")
+          TT.params         <- file.path(TT.lib, "portuguese.par")
+          TT.separator      <- file.path(TT.bin, "separate-punctuation")
+          TT.tknz.opts      <- paste("+1 +s +l", TT.abbrev)
+          TT.pre.tagger     <- "grep -v '^$' |"
+          TT.posttagger     <- file.path(TT.cmd, "portuguese-post-tagging")
+          TT.filter         <- paste("|", TT.posttagger, "-no")
           # generally, the parts below are combined in this order:
           # TT.tokenizer TT.tknz.opts "|" TT.lookup.command TT.tagger TT.opts TT.params TT.filter.command
           if(isTRUE(unix.OS)){
@@ -72,32 +77,32 @@ lang.support.pt <- function(...) {
             return(
               list(
                 # you should change these according to the TreeTagger script
-                TT.splitter         = file.path(TT.cmd, "portuguese-splitter.perl"),
-                TT.splitter.opts    = paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |"),
-                TT.tokenizer        = file.path(TT.bin, "separate-punctuation"),
+                TT.splitter         = TT.splitter,
+                TT.splitter.opts    = TT.splitter.opts,
+                TT.tokenizer        = TT.separator,
                 TT.tagger           = file.path(TT.bin, "tree-tagger"),
                 TT.abbrev           = c(),
-                TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
+                TT.params           = TT.params,
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.tknz.opts        = TT.tknz.opts,
                 TT.filter.command   = TT.filter,
-                TT.pre.tagger       = "grep -v '^$' |"
+                TT.pre.tagger       = TT.pre.tagger
               )
             )
           } else {
             # preset for windows systems
             return(
               list(
-                TT.splitter         = file.path(TT.cmd, "portuguese-splitter.perl"),
-                TT.splitter.opts    = paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |"),
-                TT.tokenizer        = file.path(TT.bin, "separate-punctuation"),
+                TT.splitter         = TT.splitter,
+                TT.splitter.opts    = TT.splitter.opts,
+                TT.tokenizer        = TT.separator,
                 TT.tagger           = file.path(TT.bin, "tree-tagger.exe"),
                 TT.abbrev           = c(),
-                TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
+                TT.params           = TT.params,
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.tknz.opts        = TT.tknz.opts,
                 TT.filter.command   = TT.filter,
-                TT.pre.tagger       = "grep -v '^$' |"
+                TT.pre.tagger       = TT.pre.tagger
               )
             )
           }
