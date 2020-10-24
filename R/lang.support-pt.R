@@ -124,7 +124,7 @@ lang.support.pt <- function(...) {
   koRpus::set.lang.support("kRp.POS.tags",
     ## tag and class definitions
     # por -- portuguese
-    # see http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/Portuguese-Tagset.html
+    # see https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/Portuguese-Tagset.html
     list(
       "pt"=list(
         tag.class.def.words=matrix(c(
@@ -313,7 +313,7 @@ lang.support.pt <- function(...) {
         ), ncol=3, byrow=TRUE, dimnames=list(c(),c("tag","wclass","desc"))),
         tag.class.def.punct=matrix(c(
           "F","punctuation","pontuacao",
-          "Faa","punctuation","¡",
+          "Faa","punctuation","\u00a1",
           "Fat","punctuation","!",
           "Fc","punctuation",",",
           "Fca","punctuation","[",
@@ -322,15 +322,15 @@ lang.support.pt <- function(...) {
           "Fe","punctuation","\"",
           "Fg","punctuation","-",
           "Fh","punctuation","/",
-          "Fia","punctuation","¿",
+          "Fia","punctuation","\u00bf",
           "Fit","punctuation","?",
           "Fla","punctuation","{",
           "Flt","punctuation","}",
           "Fpa","punctuation","(",
           "Fpt","punctuation",")",
-          "Fra","punctuation","«",
-          "Frc","punctuation","»",
-          "Fs","punctuation","…",
+          "Fra","punctuation","\u00ab",
+          "Frc","punctuation","\u00bb",
+          "Fs","punctuation","\u2026",
           "Ft","punctuation","%",
           "Fx","punctuation",";",
           "Fz","punctuation","_+="

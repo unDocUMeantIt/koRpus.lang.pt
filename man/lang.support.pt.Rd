@@ -12,7 +12,7 @@ lang.support.pt(...)
 \description{
 This function adds support for Portuguese to the koRpus package. You should not
 need to call it manually, as that is done automatically when this package is
-loaded.
+being loaded.
 }
 \details{
 In particular, this function adds the following:
@@ -24,12 +24,10 @@ In particular, this function adds the following:
       implemented using the documentation for the corresponding
    TreeTagger parameter set[2]
 }
-Hyphenation patterns are provided by means of the \code{sylly.pt} package.
+Hyphenation patterns are provided by means of the \code{\link[sylly.pt:hyph.support.pt]{sylly.pt}} package.
 }
 \examples{
-\dontrun{
 lang.support.pt()
-}
 }
 \references{
 [1] \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}

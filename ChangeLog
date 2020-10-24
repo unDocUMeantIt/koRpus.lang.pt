@@ -1,14 +1,16 @@
 ChangeLog for package koRpus.lang.pt
 
-changes in version 0.1-3 (2020-10-23)
-unreleased:
-  - this release is under development
+changes in version 0.1-3 (2020-10-24)
 changed:
   - renamed abbreviations and parameter files omitting the "-utf8" suffix
   - version number shortened by dropping a zero
   - updated README.md
+  - removed methods from list of imported packages
+  - replaced some non-ASCII characters in tag.class.def.punct with
+    unicode escapes
 added:
   - support optional arguments for koRpus::set.lang.support()
+  - a LICENSE file
 
 changes in version 0.01-2 (2017-09-30)
 changed:

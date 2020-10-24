@@ -20,7 +20,7 @@ install.packages(
 )
 ```
 
-To automatically get updates, consider [adding the repository to your R configuration](https://undocumeantit.github.io/repos).  You might also
+To automatically get updates, consider [adding the repository to your R configuration](https://undocumeantit.github.io/repos/).  You might also
 want to subscribe to the package's [RSS feed](https://undocumeantit.github.io/repos/l10n/pckg/koRpus.lang.pt/RSS.xml) to get notified of new releases.
 
 If you're running a Debian based operating system, you might be interested in the
@@ -28,19 +28,18 @@ If you're running a Debian based operating system, you might be interested in th
 
 ### Installation via GitHub
 
-To install the package directly from GitHub, you can use `install_github()` from the [devtools](https://github.com/hadley/devtools) package:
+To install the package directly from GitHub, you can use `install_github()` from the [devtools](https://github.com/r-lib/devtools) package:
 
-```
-library(devtools)
-install_github("unDocUMeantIt/koRpus.lang.pt") # stable release
-install_github("unDocUMeantIt/koRpus.lang.pt", ref="develop") # development release
+```r
+devtools::install_github("unDocUMeantIt/koRpus.lang.pt") # stable release
+devtools::install_github("unDocUMeantIt/koRpus.lang.pt", ref="develop") # development release
 ```
 
 ## Contributing
 
 To ask for help, report bugs, suggest feature improvements, or discuss the global
 development of the package, please use the [issue tracker](https://github.com/unDocUMeantIt/koRpus.lang.pt/issues),
-or subscribe to the [koRpus-dev mailing list](http://korpusml.reaktanz.de).
+or subscribe to the [koRpus-dev mailing list](https://korpusml.reaktanz.de).
 
 ### Branches
 
@@ -49,7 +48,7 @@ branch will be rejected, as it is reserved for the current stable release.
 
 ## License
 
-koRpus.lang.pt Copyright (C) 2016-2018 m.eik michalke, released under the
+koRpus.lang.pt Copyright (C) 2016-2020 Meik Michalke, released under the
 GNU General Public License (GPL) version 3 or (at your option) any later version.
 
 This software is distributed in the hope that it will be useful, but
