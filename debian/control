@@ -2,26 +2,19 @@ Source: r-other-undocumeantit-korpus.lang.pt
 Section: gnu-r
 Priority: optional
 Maintainer: Meik Michalke <meik.michalke@hhu.de>
-Build-Depends-Indep: debhelper (>> 9.0.0), r-base-dev (>= 2.10.0),
- cdbs, r-cran-korpus (>= 0.11-1) | r-other-reaktanz-korpus (>= 0.11-1),
- r-cran-sylly.pt | r-other-reaktanz-sylly.pt |
- r-other-undocumeantit-sylly.pt
+Build-Depends-Indep: debhelper (>> 9.0.0), r-base-dev (>= 3.1.0), cdbs, r-cran-korpus (>= 0.11-2) | r-other-reaktanz-korpus (>= 0.11-2), r-cran-sylly.pt |
+ r-other-reaktanz-sylly.pt | r-other-undocumeantit-sylly.pt
 Standards-Version: 3.9.3.1
-Homepage: http://reaktanz.de/?c=hacking&s=koRpus
+Homepage: https://reaktanz.de/?c=hacking&s=koRpus
 
 Package: r-other-undocumeantit-korpus.lang.pt
 Architecture: all
 Section: gnu-r
-Depends: r-base-core (>= 3.4.0), r-cran-korpus (>= 0.11-1) |
- r-other-reaktanz-korpus (>= 0.11-1), r-cran-sylly.pt |
- r-other-reaktanz-sylly.pt | r-other-undocumeantit-sylly.pt
-Description: GNU R package "Language Support for 'koRpus': Portuguese"
+Depends: r-base-core (>= 4.0.0), r-api-4.0, r-cran-korpus (>= 0.11-2) | r-other-reaktanz-korpus (>= 0.11-2), r-cran-sylly.pt | r-other-reaktanz-sylly.pt |
+ r-other-undocumeantit-sylly.pt
+Description: GNU R package "Language Support for 'koRpus' Package: Portuguese"
  .
- Adds support for the Portuguese language to the 'koRpus' package. Due
- to some restrictions on CRAN, the full package sources are only
- available from the project homepage. To ask for help, report bugs,
- suggest feature improvements, or discuss the global development of the
- package, please subscribe to the koRpus-dev mailing list
- (<http://korpusml.reaktanz.de>).
-Homepage: http://reaktanz.de/?c=hacking&s=koRpus
+ Adds support for the Portuguese language to the 'koRpus' package. To ask for help, report bugs, suggest feature improvements, or discuss the global development of the package,
+ please consider subscribing to the koRpus-dev mailing list (<https://korpusml.reaktanz.de>).
+Homepage: https://reaktanz.de/?c=hacking&s=koRpus
 Suggests:

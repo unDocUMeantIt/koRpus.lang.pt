@@ -4,30 +4,30 @@
 \alias{lang.support.pt}
 \title{Language support for Portuguese}
 \usage{
-lang.support.pt()
+lang.support.pt(...)
+}
+\arguments{
+\item{...}{Optional arguments for \code{\link[koRpus:set.lang.support]{set.lang.support}}.}
 }
 \description{
 This function adds support for Portuguese to the koRpus package. You should not
 need to call it manually, as that is done automatically when this package is
-loaded.
+being loaded.
 }
 \details{
 In particular, this function adds the following:
 \itemize{
  \item \code{lang}: The additional language "pt" to be used with koRpus
- \item \code{treetag}: The additional preset "pt-utf8",
-      implemented according to the respective
-   TreeTagger[1] script
+ \item \code{treetag}: The additional preset "pt",
+      implemented according to the respective TreeTagger[1] script
  \item \code{POS tags}: An additional set of tags,
       implemented using the documentation for the corresponding
    TreeTagger parameter set[2]
 }
-Hyphenation patterns are provided by means of the \code{sylly.pt} package.
+Hyphenation patterns are provided by means of the \code{\link[sylly.pt:hyph.support.pt]{sylly.pt}} package.
 }
 \examples{
-\dontrun{
 lang.support.pt()
-}
 }
 \references{
 [1] \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}

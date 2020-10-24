@@ -1,4 +1,4 @@
-# Copyright 2016-2017 Meik Michalke <meik.michalke@hhu.de>
+# Copyright 2016-2020 Meik Michalke <meik.michalke@hhu.de>
 #
 # This file is part of the R package koRpus.lang.pt.
 #
@@ -23,18 +23,18 @@
 #' 
 #' This function adds support for Portuguese to the koRpus package. You should not
 #' need to call it manually, as that is done automatically when this package is
-#' loaded.
+#' being loaded.
 #' 
 #' In particular, this function adds the following:
 #' \itemize{
 #'  \item \code{lang}: The additional language "pt" to be used with koRpus
-#'  \item \code{treetag}: The additional preset "pt-utf8", implemented according to the respective
-#'    TreeTagger[1] script
+#'  \item \code{treetag}: The additional preset "pt", implemented according to the respective TreeTagger[1] script
 #'  \item \code{POS tags}: An additional set of tags, implemented using the documentation for the corresponding
 #'    TreeTagger parameter set[2]
 #' }
-#' Hyphenation patterns are provided by means of the \code{sylly.pt} package.
+#' Hyphenation patterns are provided by means of the \code{\link[sylly.pt:hyph.support.pt]{sylly.pt}} package.
 #'
+#' @param ... Optional arguments for \code{\link[koRpus:set.lang.support]{set.lang.support}}.
 #' @references
 #' [1] \url{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}
 #'
@@ -42,14 +42,13 @@
 #' @export
 #' @importFrom koRpus set.lang.support
 #' @examples
-#' \dontrun{
 #' lang.support.pt()
-#' }
-lang.support.pt <- function() {
+
+lang.support.pt <- function(...) {
 
   # here you have to adjust the parameters according to the contents of the TreeTagger
   # scripts for your language (see ?set.lang.support for details)
-  #  - if there's both UTF-8 and Latin1 scripts, add them both (as "pt-utf8" and "pt")
+  #  - there's only UTF-8 scripts
   #  - add both the unix and windows equivalents
   #  - if some setting is missing, just set it to an empty vector (c())
   koRpus::set.lang.support(target="treetag",
@@ -62,10 +61,15 @@ lang.support.pt <- function() {
         preset    = function(TT.cmd, TT.bin, TT.lib, unix.OS){
           # note: these objects are set here for convenience, the
           # actual important part is the return value below
-          TT.abbrev     <- file.path(TT.lib, "portuguese-abbreviations-utf8")
-          TT.separator  <- file.path(TT.bin, "separate-punctuation")
-          TT.posttagger <- file.path(TT.cmd, "portuguese-post-tagging")
-          TT.filter     <- paste("-token -lemma -sgml |", TT.posttagger, "-no")
+          TT.splitter       <- file.path(TT.cmd, "portuguese-splitter.perl")
+          TT.splitter.opts  <- paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |")
+          TT.abbrev         <- file.path(TT.lib, "portuguese-abbreviations")
+          TT.params         <- file.path(TT.lib, "portuguese.par")
+          TT.separator      <- file.path(TT.bin, "separate-punctuation")
+          TT.tknz.opts      <- paste("+1 +s +l", TT.abbrev)
+          TT.pre.tagger     <- "grep -v '^$' |"
+          TT.posttagger     <- file.path(TT.cmd, "portuguese-post-tagging")
+          TT.filter         <- paste("|", TT.posttagger, "-no")
           # generally, the parts below are combined in this order:
           # TT.tokenizer TT.tknz.opts "|" TT.lookup.command TT.tagger TT.opts TT.params TT.filter.command
           if(isTRUE(unix.OS)){
@@ -73,38 +77,39 @@ lang.support.pt <- function() {
             return(
               list(
                 # you should change these according to the TreeTagger script
-                TT.splitter         = file.path(TT.cmd, "portuguese-splitter.perl"),
-                TT.splitter.opts    = paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |"),
-                TT.tokenizer        = file.path(TT.bin, "separate-punctuation"),
+                TT.splitter         = TT.splitter,
+                TT.splitter.opts    = TT.splitter.opts,
+                TT.tokenizer        = TT.separator,
                 TT.tagger           = file.path(TT.bin, "tree-tagger"),
                 TT.abbrev           = c(),
-                TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
+                TT.params           = TT.params,
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.tknz.opts        = TT.tknz.opts,
                 TT.filter.command   = TT.filter,
-                TT.pre.tagger       = "grep -v '^$' |"
+                TT.pre.tagger       = TT.pre.tagger
               )
             )
           } else {
             # preset for windows systems
             return(
               list(
-                TT.splitter         = file.path(TT.cmd, "portuguese-splitter.perl"),
-                TT.splitter.opts    = paste("| sed \"s/\\([\\)\\\"\\'\\?\\!]\\)\\([\\.\\,\\;\\:]\\)/ \\1 \\2/g\" |"),
-                TT.tokenizer        = file.path(TT.bin, "separate-punctuation"),
+                TT.splitter         = TT.splitter,
+                TT.splitter.opts    = TT.splitter.opts,
+                TT.tokenizer        = TT.separator,
                 TT.tagger           = file.path(TT.bin, "tree-tagger.exe"),
                 TT.abbrev           = c(),
-                TT.params           = file.path(TT.lib, "portuguese-utf8.par"),
+                TT.params           = TT.params,
 
-                TT.tknz.opts        = paste("+1 +s +l", TT.abbrev),
+                TT.tknz.opts        = TT.tknz.opts,
                 TT.filter.command   = TT.filter,
-                TT.pre.tagger       = "grep -v '^$' |"
+                TT.pre.tagger       = TT.pre.tagger
               )
             )
           }
         }
       )
-    )
+    ),
+    ...
   )
 
   # finally, add the POS tagset information (see ?set.lang.support for details)
@@ -119,7 +124,7 @@ lang.support.pt <- function() {
   koRpus::set.lang.support("kRp.POS.tags",
     ## tag and class definitions
     # por -- portuguese
-    # see http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/Portuguese-Tagset.html
+    # see https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/Portuguese-Tagset.html
     # JV: I've added a couple of these (see mailing list inquiry), but I should note I don't really know Portuguese.
     list(
       "pt"=list(
@@ -318,7 +323,7 @@ lang.support.pt <- function() {
         ), ncol=3, byrow=TRUE, dimnames=list(c(),c("tag","wclass","desc"))),
         tag.class.def.punct=matrix(c(
           "F","punctuation","pontuacao",
-          "Faa","punctuation","¡",
+          "Faa","punctuation","\u00a1",
           "Fat","punctuation","!",
           "Fc","punctuation",",",
           "Fca","punctuation","[",
@@ -327,15 +332,15 @@ lang.support.pt <- function() {
           "Fe","punctuation","\"",
           "Fg","punctuation","-",
           "Fh","punctuation","/",
-          "Fia","punctuation","¿",
+          "Fia","punctuation","\u00bf",
           "Fit","punctuation","?",
           "Fla","punctuation","{",
           "Flt","punctuation","}",
           "Fpa","punctuation","(",
           "Fpt","punctuation",")",
-          "Fra","punctuation","«",
-          "Frc","punctuation","»",
-          "Fs","punctuation","…",
+          "Fra","punctuation","\u00ab",
+          "Frc","punctuation","\u00bb",
+          "Fs","punctuation","\u2026",
           "Ft","punctuation","%",
           "Fx","punctuation",";",
           "Fz","punctuation","_+="
@@ -344,7 +349,8 @@ lang.support.pt <- function() {
           "Fp","fullstop","."
         ), ncol=3, byrow=TRUE, dimnames=list(c(),c("tag","wclass","desc")))
       )
-    )
+    ),
+    ...
   )
 }
 
